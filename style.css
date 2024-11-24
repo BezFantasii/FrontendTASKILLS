@@ -1,0 +1,124 @@
+:root{
+    --background-color: #000000;
+    --animate-duration: 800ms;
+    --text-color: #fff;
+    --border-color: #fff;
+}
+/* MAIN STYLES */
+body{
+    margin: 0;
+    background-color: var(--background-color);
+    border-color: var(--border-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+.main{
+    width: 100vw;
+    min-height: 100vh;
+}
+
+
+
+/* ANIMATION LOGO */
+.box {
+    width: 90%;
+    height: auto;
+    margin: 10px;
+}
+
+.main__main{
+    width:100%;
+    min-height: 10rem;
+    position: relative;
+    overflow: hidden;
+}
+.wrapper{
+    margin: 10px auto;
+    position: relative;
+}
+/* HEADER */
+.header__composition{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    position: relative; /* Для позиционирования псевдоэлемента */
+    width: auto;
+    text-align: center;
+    min-width: 80%;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 40px;
+}   
+.header__composition::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-left: 2px solid #fff; /* Прерывистая граница */
+    height: 60%; /* Высота границы (прерывается на середине) */
+
+}
+.header__composition::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 40%;
+    bottom: 0;
+    border-left: 2px solid #fff; /* Прерывистая граница */
+    height: 60%; /* Высота границы (прерывается на середине) */
+}
+.header__name{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+
+    align-items: end; /* Центрируем элементы по вертикали */
+}
+.header__desc{
+    margin-top: 0;
+}
+.{
+
+}
+/* NAV */
+.nav{
+    margin-bottom: 0;
+}
+/* FOOTER */
+.footer{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    padding: 10px;
+}
+.contacts{
+    width: 100%;
+
+}
+.contacts__desc{
+    display: flex;
+}
+@media (max-width: 768px) {
+    .contacts__desc{
+        flex-direction: column;
+    }
+}
+@media (min-width: 768px){
+    .contacts__desc{
+        justify-content: start;
+        flex-direction: row;
+    }
+}
+.contacts__info{
+    margin-right: 10px;
+
+}
