@@ -30,3 +30,20 @@ const reset = () => {
  
 wrapper.addEventListener('mousemove', handleParallax);
 wrapper.addEventListener('mouseout', reset);
+// function updateImageSrc() {
+//     const img = document.getElementById('img__right__lines');
+    
+//     const screenWidth = window.innerWidth;
+
+//     if (screenWidth <600) {
+//         img.src = './assets/img_left_lines_desktop.svg'; // Замените на путь к маленькому изображению
+//     } else {
+//         img.src = './assets/img_left_lines_desktop.svg'; // Замените на путь к большому изображению
+//     }
+// }
+
+// // Обновляем изображение при загрузке страницы
+// updateImageSrc();
+
+// // Обновляем изображение при изменении размера окна
+// window.addEventListener('resize', updateImageSrc);

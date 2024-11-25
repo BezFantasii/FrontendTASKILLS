@@ -3,6 +3,8 @@
     --animate-duration: 800ms;
     --text-color: #fff;
     --border-color: #fff;
+    --border-color-frame1: #FEA65B;
+    --border-color-frame2:#D24D9C;
 }
 /* MAIN STYLES */
 body{
@@ -10,18 +12,28 @@ body{
     background-color: var(--background-color);
     border-color: var(--border-color);
     color: var(--text-color);
+    min-height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-}
-.main{
-    width: 100vw;
-    min-height: 100vh;
 }
 
 
+.img__right__lines{
+    position: absolute;
+    margin-top: 0;
+    margin-left: 60%;
+    width: 40%;
 
+}
+.img__left__lines{
+    position: absolute;
+    margin-top: 30%;
+    margin-left: -80%;
+    width: 20%;
+    z-index: -1;
+}
 /* ANIMATION LOGO */
 .box {
     width: 90%;
@@ -48,57 +60,108 @@ body{
     position: relative; /* Для позиционирования псевдоэлемента */
     width: auto;
     text-align: center;
-    min-width: 80%;
+    min-width: 70%;
     padding-left: 4px;
     padding-right: 4px;
     padding-bottom: 40px;
 }   
-.header__composition::after{
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    border-left: 2px solid #fff; /* Прерывистая граница */
-    height: 60%; /* Высота границы (прерывается на середине) */
+@media (max-width: 768px) {
 
+    .nav{
+        display: flex;
+        justify-content: end;
+        align-items: end;
+    }
+    .nav::after{
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 100%;
+        bottom: 0;
+        border-bottom: 2px solid #fff; /* Прерывистая граница */
+        width: 80%;
+    }
+    .header__composition::before{
+        content: '';
+        position: absolute;
+        right: 20%;
+        top: 0;
+        bottom: 0;
+        border-top: 2px solid #fff; /* Прерывистая граница */
+        width: 80%;
+    }
+    
 }
-.header__composition::before{
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 40%;
-    bottom: 0;
-    border-left: 2px solid #fff; /* Прерывистая граница */
-    height: 60%; /* Высота границы (прерывается на середине) */
+@media (min-width: 768px) {
+    .header{
+        align-items: end;
+    }
+    .header__composition::before{
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 40%;
+        bottom: 0;
+        border-left: 2px solid #fff; /* Прерывистая граница */
+        height: 60%; /* Высота границы (прерывается на середине) */
+    }
+    .header__composition::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        border-left: 2px solid #fff; /* Прерывистая граница */
+        height: 60%; /* Высота границы (прерывается на середине) */
+    
+    }
 }
+
 .header__name{
     display: flex;
     flex-direction: column;
     align-items: start;
 }
-.header{
+.header {
+    position: relative;
     display: flex;
-    flex-direction: row;
-
-    align-items: end; /* Центрируем элементы по вертикали */
+    justify-content: center;
+    width: 100%; /* Устанавливаем ширину в 100% */
+    max-width: 80%; /* Ограничиваем ширину */
+    box-sizing: border-box; /* Учитываем отступы и границы */
+    padding: 0; /* Убираем отступы, если они есть */
+    margin: 0; /* Убираем внешние отступы */
 }
-.header__desc{
+@media (max-width:768px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
+.header__desc .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Устанавливаем ширину в 100% */
+    max-width: 100%; /* Ограничиваем ширину */
+    box-sizing: border-box; /* Учитываем отступы и границы */
+    align-items: end; /* Центрируем элементы по вертикали */
+    padding: 0; /* Убираем отступы, если они есть */
+    margin: 0; /* Убираем внешние отступы */
     margin-top: 0;
 }
-.{
 
-}
 /* NAV */
-.nav{
-    margin-bottom: 0;
-}
 /* FOOTER */
-.footer{
+.footer {
     display: flex;
     flex-direction: column;
     margin-bottom: 0;
     padding: 10px;
+    max-width: 100%; /* Ограничиваем ширину */
+    box-sizing: border-box; /* Учитываем отступы и границы */
+    width: 100%; /* Устанавливаем ширину в 100% */
 }
 .contacts{
     width: 100%;
@@ -121,4 +184,21 @@ body{
 .contacts__info{
     margin-right: 10px;
 
+}
+/* TEAM */
+.team{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.about{
+    display: flex;
+    justify-self: start;
+}
+.about__icon__img {
+    width: 25%;
+    border: 2px solid var(--border-color-frame1); /* Устанавливаем границу в 2 пикселя */
+    padding: 10px; /* Добавляем внутренний отступ в 2 пикселя */
+    border-radius: 20px;
+    box-sizing: border-box; /* Учитываем отступы и границы в ширине */
 }
