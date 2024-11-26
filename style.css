@@ -17,8 +17,39 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    z-index: 2;
 }
 
+@font-face {
+    font-family: 'Rimma_sans'; /* Название шрифта */
+    src: url('fonts/RIMMA_SANS-BOLD.TTF') format('truetype');
+    font-weight: normal; /* Укажите вес шрифта */
+    font-style: normal; /* Укажите стиль шрифта */
+}
+
+.big__words{
+    font-family: Rimma_sans;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 76.8px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+@media (min-width: 1000px) {
+    .big__words{
+        font-size: 64px;
+    }
+}
+@media (min-width:768px) {
+    .big__words{
+        font-size: 48px;
+    }
+}
 
 .img__right__lines{
     position: absolute;
@@ -30,13 +61,13 @@ body{
 .img__left__lines{
     position: absolute;
     margin-top: 30%;
-    margin-left: -80%;
-    width: 20%;
+    margin-left: -90%;
+    width: 10%;
     z-index: -1;
 }
 /* ANIMATION LOGO */
 .box {
-    width: 90%;
+    width: 80%;
     height: auto;
     margin: 10px;
 }
@@ -47,11 +78,11 @@ body{
     position: relative;
     overflow: hidden;
 }
-.wrapper{
-    margin: 10px auto;
-    position: relative;
-}
+
 /* HEADER */
+.header__title{
+    margin-top: 0;
+}
 .header__composition{
     display: flex;
     flex-direction: column;
@@ -130,7 +161,7 @@ body{
     max-width: 80%; /* Ограничиваем ширину */
     box-sizing: border-box; /* Учитываем отступы и границы */
     padding: 0; /* Убираем отступы, если они есть */
-    margin: 0; /* Убираем внешние отступы */
+    margin-top: 10%; /* Убираем внешние отступы */
 }
 @media (max-width:768px) {
     .header {
@@ -154,7 +185,7 @@ body{
 
 /* NAV */
 /* FOOTER */
-.footer {
+.footer{
     display: flex;
     flex-direction: column;
     margin-bottom: 0;
@@ -162,6 +193,10 @@ body{
     max-width: 100%; /* Ограничиваем ширину */
     box-sizing: border-box; /* Учитываем отступы и границы */
     width: 100%; /* Устанавливаем ширину в 100% */
+    border-top: 2px solid var(--border-color-frame2);
+    position: relative;
+    overflow: hidden; /* Скрывает содержимое, выходящее за рамки */
+
 }
 .contacts{
     width: 100%;
@@ -185,20 +220,136 @@ body{
     margin-right: 10px;
 
 }
+.footer__logo{
+    position: absolute;
+    bottom: -50%;
+    right: 0;
+    z-index: -1;
+    height: 200%;
+    width: auto;
+    opacity: 40%;
+
+}
+@media(max-width:768px){
+    .footer__logo{
+        top: -20%;
+        right: -30%;
+        height: 120%;
+        opacity: 40%;
+    }
+}
 /* TEAM */
 .team{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.about{
-    display: flex;
-    justify-self: start;
+@media (min-width: 768px){
+    .about{
+        display: flex;
+        justify-content: center;
+        max-width: 70%;
+    }
+    .about__icon__img {
+        width: 70%;
+        border: 2px solid var(--border-color-frame1); /* Устанавливаем границу в 2 пикселя */
+        padding: 10px; /* Добавляем внутренний отступ в 2 пикселя */
+        border-radius: 20px;
+        box-sizing: border-box; /* Учитываем отступы и границы в ширине */
+    }
+    
+    .icon__bottom{
+        margin-top: 10%;
+    }
+    .about__icon{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
 }
-.about__icon__img {
-    width: 25%;
-    border: 2px solid var(--border-color-frame1); /* Устанавливаем границу в 2 пикселя */
-    padding: 10px; /* Добавляем внутренний отступ в 2 пикселя */
-    border-radius: 20px;
-    box-sizing: border-box; /* Учитываем отступы и границы в ширине */
+@media (max-width: 768px) {
+    .team{
+        display: flex;
+        flex-direction: column;
+        max-width: 90%;
+    }
+    .about{
+        display: flex;
+        flex-direction: column;
+    }
+    .about__icon__img {
+        width: 60%;
+        border: 2px solid var(--border-color-frame1); /* Устанавливаем границу в 2 пикселя */
+        padding: 10px; /* Добавляем внутренний отступ в 2 пикселя */
+        border-radius: 20px;
+        box-sizing: border-box; /* Учитываем отступы и границы в ширине */
+    }
+    .about__icon{
+        display: flex;
+        align-items: start;
+        margin-top: 20px;
+        box-sizing: border-box; /* Учитываем отступы и границы в ширине */
+
+    }
+    .icon__text__info{
+        display: flex;
+        flex-direction: column;
+    }
+    .icon__bottom{
+        display: flex;
+        flex-direction: row-reverse;
+        text-align: end;
+    }
+}
+.icon__change__border__color{
+    border: 2px solid var(--border-color-frame2); /* Устанавливаем границу в 2 пикселя */
+
+}
+/* PROJECTS */
+.projects {
+    max-width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; /* Убедитесь, что элементы располагаются вертикально */
+    height: 100%; /* Убедитесь, что контейнер занимает всю высоту */
+}
+
+.projects__desc {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Измените на stretch */
+    height: 100%; /* Убедитесь, что контейнер занимает всю высоту */
+    box-sizing: border-box;
+}
+
+.projects__title{
+    display: flex;
+    justify-content: end;
+}
+.projects__img1{
+
+    box-sizing: border-box;
+}
+.projects__img{
+    border: 2px solid var(--border-color-frame2);
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 60%;
+}
+.projects__name {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column; /* Располагаем элементы по вертикали */
+    justify-content: space-between; /* Распределяем пространство между элементами */
+}
+.figma{
+    background-color: transparent;
+    padding: 10px;
+    border-color: var(--border-color-frame2);
+    border-radius: 10px;
+    color: var(--text-color);
 }

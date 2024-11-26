@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
     <title>Document</title>
-
 </head>
 <body id="body">
     <script src="script.js" defer></script>
@@ -16,14 +18,12 @@
         <div class="header__composition">
 
             <div class="header__name">
-                <h1 class="header__title">Здравствуйте</h1>
+                <h1 class="header__title big__words">Здравствуйте</h1>
                 <div class="header__desc">мы команда copYpaster</div>
             </div>
-            <div class="wrapper">
                 <div class="main__main" id="main">
                     <img class="box" id="box" src="./assets/img__logo.svg" data-speed="0.07">
                 </div>
-            </div>
         </div>
         <nav class="nav">
             <ul>
@@ -33,25 +33,53 @@
         </nav>
     </header>
     <div class="team">
-        <h2>Наша команда</h2>
+        <h2 class="big__words">Наша команда</h2>
         <div class="about">
             <div class="about__icon">
                 <img class="about__icon__img" src="./assets/image.jpg">
-                <p class="about__icon__name"></p>
+                <div class="icon__text__info">
+                    <p class="about__icon__name icon__name">Селибов Артём</p>
+                    <p class="about__icon__name">frontend разработчик</p>
+                </div>
+            </div>
+            <div class="about__icon icon__bottom">
+                <img class="about__icon__img icon__change__border__color" src="./assets/image.jpg">
+                <div class="icon__text__info">
+                    <p class="about__icon__name icon__name">Корнова Екатерина</p>
+                    <p class="about__icon__name">Дизайнер</p>
+                </div>
             </div>
             <div class="about__icon">
                 <img class="about__icon__img" src="./assets/image.jpg">
-                <p class="about__icon__name"></p>
-            </div>
-            <div class="about__icon">
-                <img class="about__icon__img" src="./assets/image.jpg">
-                <p class="about__icon__name"></p>
+                <div class="icon__text__info">
+                    <p class="about__icon__name icon_name">Зуева Алина</p>
+                    <p class="about__icon__name">Backend разработчик</p>
+                </div>
             </div>
         </div>
     </div>
-
+    <div class="projects">
+        <h1 class="projects__title big__words">Проекты</h1>
+        <div class="projects__desc">
+            <div class="projects__name">
+                <div class="projects__name__name" id="projects__name1">
+                    Сайт Портфолио
+                </div>
+                <div class="projects__name__name" id="projects__name2">
+                    Сайт SWIPE CSAT
+                </div>
+                <div class="projects__name__name" id="projects__name3">
+                    Сайт Тихий океан
+                </div>
+                <button class="figma">Посмотреть в фигме</button>
+            </div>
+            <div class="projects__img">
+                <img class="projects__img1" src="./assets/image.jpg" alt="Project image">
+            </div>
+        </div>
+    </div>
     <div class="footer">
-        <h3 class="contacts">Контакты</h3>
+        <h3 class="contacts big__words">Контакты</h3>
         <div class="contacts__desc">
             <div class="contacts__info">
                 <p>Корнова</p>
@@ -66,6 +94,7 @@
                 <p>inboxalin@gmail.com</p>
             </div>
         </div>
+        <img class="footer__logo" src="./assets/img__logo.svg">
     </div>
 </body>
 </html>
