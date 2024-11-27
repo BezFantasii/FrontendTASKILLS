@@ -39,15 +39,32 @@ body{
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
+    line-height: 1.2;
+}
+.not__so__big__words{
+    font-family: Rimma_sans;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 76.8px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    line-height: 1.2;
 }
 @media (min-width: 1000px) {
     .big__words{
         font-size: 64px;
     }
+    .not__so__big__words{
+        font-size: 32px;
+    }
 }
 @media (min-width:768px) {
     .big__words{
         font-size: 48px;
+    }
+    .not__so__big__words{
+        font-size: 24px;
     }
 }
 
@@ -189,7 +206,6 @@ body{
     display: flex;
     flex-direction: column;
     margin-bottom: 0;
-    padding: 10px;
     max-width: 100%; /* Ограничиваем ширину */
     box-sizing: border-box; /* Учитываем отступы и границы */
     width: 100%; /* Устанавливаем ширину в 100% */
@@ -199,11 +215,15 @@ body{
 
 }
 .contacts{
-    width: 100%;
-
+    max-width: 100%;
+    margin-left: 2%;
+    box-sizing: border-box;
 }
 .contacts__desc{
     display: flex;
+    max-width: 100%;
+    margin-left: 2%;
+    box-sizing: border-box;
 }
 @media (max-width: 768px) {
     .contacts__desc{
@@ -237,6 +257,12 @@ body{
         height: 120%;
         opacity: 40%;
     }
+}
+.footer__data{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #FFFFFFCC;
 }
 /* TEAM */
 .team{
@@ -308,48 +334,102 @@ body{
 }
 /* PROJECTS */
 .projects {
-    max-width: 80%;
+    
     display: flex;
     justify-content: center;
     flex-direction: column; /* Убедитесь, что элементы располагаются вертикально */
     height: 100%; /* Убедитесь, что контейнер занимает всю высоту */
+    max-width: 100%;
+    margin-bottom: 10%;
+    box-sizing: border-box;
 }
 
 .projects__desc {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: stretch; /* Измените на stretch */
     height: 100%; /* Убедитесь, что контейнер занимает всю высоту */
+    width: auto;
+    max-width: 80%;
+    margin-right: 20%;
+    margin-left: 20%;
     box-sizing: border-box;
+}
+@media (max-width:768px) {
+    .projects__desc{
+        flex-direction: column;
+    }
 }
 
 .projects__title{
     display: flex;
     justify-content: end;
-}
-.projects__img1{
-
+    margin-right: 20%;
     box-sizing: border-box;
 }
-.projects__img{
-    border: 2px solid var(--border-color-frame2);
+.projects__img__img {
+    height: auto;
+    width: 100%;
     border-radius: 10px;
-    padding: 10px;
+    padding: 1px;
     box-sizing: border-box;
-    width: 60%;
+    overflow: hidden; /* Скрываем псевдоэлементы за пределами родителя */
+    position: relative; /* Устанавливаем позиционирование для родителя */
+    
+    /* Границы */
+    border: 1px solid transparent; /* Устанавливаем ширину границы */
+    border-radius: 10px; /* Округляем границы */
+    background-image: linear-gradient(90deg, #FFA65B, #D24D9C); /* Градиент */
+    border-image: linear-gradient(90deg, #FFA65B, #D24D9C) 1; /* Применяем градиент к границе */
+}
+
+.projects__img{
+
 }
 .projects__name {
-    margin-top: 10%;
-    margin-bottom: 10%;
+
     margin-right: 10%;
     display: flex;
     flex-direction: column; /* Располагаем элементы по вертикали */
     justify-content: space-between; /* Распределяем пространство между элементами */
 }
-.figma{
-    background-color: transparent;
+.projects__name__name{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    box-sizing: border-box;
+}
+.figma__a{
     padding: 10px;
-    border-color: var(--border-color-frame2);
+    border: 2px solid var(--border-color-frame2);
     border-radius: 10px;
     color: var(--text-color);
+}
+
+
+.project1.active {
+    background: linear-gradient(90deg, #FFA65B 0%, #D24D9C 100%);
+    -webkit-background-clip: text; /* Обрезаем фон по форме текста */
+    -webkit-text-fill-color: transparent; /* Делает цвет текста прозрачным, чтобы виден был фон */}
+.project2.active {
+    background: linear-gradient(90.02deg, #E5C45A 0.02%, #72440A 93.67%);
+    -webkit-background-clip: text; /* Обрезаем фон по форме текста */
+    -webkit-text-fill-color: transparent; /* Делает цвет текста прозрачным, чтобы виден был фон */
+}
+.project3.active {
+    background: linear-gradient(89.83deg, #2F6A9A 0.14%, #B1DEDA 65.43%);
+    -webkit-background-clip: text; /* Обрезаем фон по форме текста */
+    -webkit-text-fill-color: transparent; /* Делает цвет текста прозрачным, чтобы виден был фон */}
+.mobile{
+    display: none;
+}
+.desktop{
+    display: flex;
+}
+@media (max-width: 768px) {
+    .mobile{
+        display: flex;
+    }
+    .desktop{
+        display: none;
+    }
 }

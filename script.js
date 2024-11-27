@@ -47,3 +47,45 @@ wrapper.addEventListener('mouseout', reset);
 
 // // Обновляем изображение при изменении размера окна
 // window.addEventListener('resize', updateImageSrc);
+document.addEventListener('DOMContentLoaded', () => {
+    const projectNames = document.querySelectorAll('.projects__name__name');
+    const projectImage1 = document.querySelector('.projects__img1');
+    const projectDescription = document.querySelector('.project__about'); // Селектор для текста под изображением
+    const figmaButton = document.querySelector('.figma');
+
+    // Устанавливаем первый проект как активный и задаем изображение и текст по умолчанию
+    const firstProject = document.querySelector('#projects__name1');
+    firstProject.classList.add('active');
+    projectImage1.src = firstProject.getAttribute('data-image'); // Устанавливаем изображение по умолчанию
+    projectDescription.textContent = firstProject.getAttribute('data-text'); // Устанавливаем текст по умолчанию
+
+    projectNames.forEach(project => {
+        project.addEventListener('click', () => {
+            // Удаляем класс active у всех элементов
+            projectNames.forEach(p => p.classList.remove('active'));
+
+            // Добавляем класс active к текущему элементу
+            project.classList.add('active');
+
+            // Меняем изображение и текст в зависимости от выбранного проекта
+            const newImageSrc = project.getAttribute('data-image');
+            projectImage1.src = newImageSrc; // Меняем первую картинку
+
+            const newText = project.getAttribute('data-text');
+            projectDescription.textContent = newText; // Меняем текст
+        });
+    });
+
+    // Убираем анимацию при клике на кнопку
+    figmaButton.addEventListener('click', (event) => {
+        // Убираем анимацию
+        figmaButton.style.transition = 'none';
+
+        // Делаем что-то при клике на кнопку (например, открытие ссылки)
+
+        // Восстанавливаем анимацию через 1 миллисекунду
+        setTimeout(() => {
+            figmaButton.style.transition = ''; // Восстанавливаем анимацию
+        }, 1);
+    });
+});
