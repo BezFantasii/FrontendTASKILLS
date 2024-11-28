@@ -46,7 +46,7 @@ body{
     font-size: 16px;
     font-weight: 700;
     line-height: 76.8px;
-    text-align: left;
+    
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
     line-height: 1.2;
@@ -67,7 +67,14 @@ body{
         font-size: 24px;
     }
 }
-
+@media(max-width:370px){
+    .big__words{
+        font-size: 16px;
+    }
+    .not__so__big__words{
+        font-size: 14px;
+    }
+}
 .img__right__lines{
     position: absolute;
     margin-top: 0;
@@ -113,6 +120,15 @@ body{
     padding-right: 4px;
     padding-bottom: 40px;
 }   
+.header__name{
+    line-height: 1.2;
+
+}
+.nav ul {
+    list-style-type: none; /* Убирает маркеры перед элементами списка */
+    padding: 0; /* Убирает отступы по умолчанию */
+    margin: 0; /* Убирает внешние отступы */
+}
 @media (max-width: 768px) {
 
     .nav{
@@ -128,6 +144,9 @@ body{
         bottom: 0;
         border-bottom: 2px solid #fff; /* Прерывистая граница */
         width: 80%;
+        margin-left: 5px;
+        margin-right: 5px;
+        box-sizing: border-box;
     }
     .header__composition::before{
         content: '';
@@ -137,8 +156,28 @@ body{
         bottom: 0;
         border-top: 2px solid #fff; /* Прерывистая граница */
         width: 80%;
+        margin-left: 5px;
+        margin-right: 5px;
+        box-sizing: border-box;
     }
-    
+    .mobile__lines{
+        display: flex;
+        width: 100%;
+    }
+    .header{
+        display: flex;
+        flex-direction: column;
+    }
+    .img__right__lines{
+        display: none;
+    }
+    .img__left__lines{
+        display: none;
+    }
+    .reverse{
+        transform: rotate(180deg);
+
+    }
 }
 @media (min-width: 768px) {
     .header{
@@ -150,6 +189,9 @@ body{
         right: 0;
         top: 40%;
         bottom: 0;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        box-sizing: border-box;
         border-left: 2px solid #fff; /* Прерывистая граница */
         height: 60%; /* Высота границы (прерывается на середине) */
     }
@@ -159,9 +201,15 @@ body{
         left: 0;
         top: 0;
         bottom: 0;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        box-sizing: border-box;
         border-left: 2px solid #fff; /* Прерывистая граница */
         height: 60%; /* Высота границы (прерывается на середине) */
     
+    }
+    .mobile__lines{
+        display: none;
     }
 }
 
@@ -270,6 +318,18 @@ body{
     flex-direction: column;
     align-items: center;
 }
+.about__icon {
+    flex: 1; /* Задает одинаковую ширину для всех колонок */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px; /* Добавьте отступы между колонками, если нужно */
+}
+.about{
+    position: relative;
+
+}
+
 @media (min-width: 768px){
     .about{
         display: flex;
@@ -277,7 +337,7 @@ body{
         max-width: 70%;
     }
     .about__icon__img {
-        width: 70%;
+        width: 100%;
         border: 2px solid var(--border-color-frame1); /* Устанавливаем границу в 2 пикселя */
         padding: 10px; /* Добавляем внутренний отступ в 2 пикселя */
         border-radius: 20px;
@@ -285,24 +345,35 @@ body{
     }
     
     .icon__bottom{
-        margin-top: 10%;
+        margin-top: 30%;
+        display: flex;
     }
     .about__icon{
+        max-width: 40%;
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
+        
+    }
+    .left__eye{
+        display: none;
+    }
+    .right__eye{
+        display: none;
     }
 }
+
 @media (max-width: 768px) {
     .team{
         display: flex;
         flex-direction: column;
-        max-width: 90%;
     }
     .about{
         display: flex;
         flex-direction: column;
+        position: relative;
+        overflow: hidden;
     }
     .about__icon__img {
         width: 60%;
@@ -314,6 +385,7 @@ body{
     .about__icon{
         display: flex;
         align-items: start;
+        flex-direction: row;
         margin-top: 20px;
         box-sizing: border-box; /* Учитываем отступы и границы в ширине */
 
@@ -321,11 +393,31 @@ body{
     .icon__text__info{
         display: flex;
         flex-direction: column;
+ 
     }
     .icon__bottom{
         display: flex;
         flex-direction: row-reverse;
+    }
+    .reverse__icon__text{
         text-align: end;
+    }
+    .right__eye{
+        position: absolute;
+        right: -20%;
+        top: 15%;
+        width: 60%;
+        z-index: -1;
+        opacity: 40%;
+    }
+    .left__eye{
+        position: absolute;
+        top: 45%;
+        left: -20%;
+        width: 60%;
+        z-index: -1;
+        opacity: 40%;
+
     }
 }
 .icon__change__border__color{
@@ -349,10 +441,9 @@ body{
     justify-content: space-between;
     align-items: stretch; /* Измените на stretch */
     height: 100%; /* Убедитесь, что контейнер занимает всю высоту */
-    width: auto;
-    max-width: 80%;
-    margin-right: 20%;
-    margin-left: 20%;
+    width: 70%;
+    margin-right: 15%;
+    margin-left: 15%;
     box-sizing: border-box;
 }
 @media (max-width:768px) {
@@ -364,11 +455,11 @@ body{
 .projects__title{
     display: flex;
     justify-content: end;
-    margin-right: 20%;
+    margin-right: 15%;
     box-sizing: border-box;
 }
 .projects__img__img {
-    height: auto;
+    height: 100%;
     width: 100%;
     border-radius: 10px;
     padding: 1px;
@@ -409,7 +500,8 @@ body{
 .project1.active {
     background: linear-gradient(90deg, #FFA65B 0%, #D24D9C 100%);
     -webkit-background-clip: text; /* Обрезаем фон по форме текста */
-    -webkit-text-fill-color: transparent; /* Делает цвет текста прозрачным, чтобы виден был фон */}
+    -webkit-text-fill-color: transparent; /* Делает цвет текста прозрачным, чтобы виден был фон */
+}
 .project2.active {
     background: linear-gradient(90.02deg, #E5C45A 0.02%, #72440A 93.67%);
     -webkit-background-clip: text; /* Обрезаем фон по форме текста */
@@ -418,7 +510,8 @@ body{
 .project3.active {
     background: linear-gradient(89.83deg, #2F6A9A 0.14%, #B1DEDA 65.43%);
     -webkit-background-clip: text; /* Обрезаем фон по форме текста */
-    -webkit-text-fill-color: transparent; /* Делает цвет текста прозрачным, чтобы виден был фон */}
+    -webkit-text-fill-color: transparent; /* Делает цвет текста прозрачным, чтобы виден был фон */
+}
 .mobile{
     display: none;
 }
