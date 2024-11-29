@@ -49,7 +49,7 @@ body{
     
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    line-height: 1.2;
+    line-height: 0.8;
 }
 @media (min-width: 1000px) {
     .big__words{
@@ -64,7 +64,7 @@ body{
         font-size: 48px;
     }
     .not__so__big__words{
-        font-size: 24px;
+        font-size: 20px;
     }
 }
 @media(max-width:370px){
@@ -323,7 +323,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px; /* Добавьте отступы между колонками, если нужно */
+    margin: 10px; /* Добавьте отступы ме    жду колонками, если нужно */
 }
 .about{
     position: relative;
@@ -331,6 +331,14 @@ body{
 }
 
 @media (min-width: 768px){
+    .icon__text__info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .about__icon__name{
+        margin: 5px;
+    }
     .about{
         display: flex;
         justify-content: center;
@@ -440,7 +448,6 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: stretch; /* Измените на stretch */
-    height: 100%; /* Убедитесь, что контейнер занимает всю высоту */
     width: 70%;
     margin-right: 15%;
     margin-left: 15%;
@@ -455,28 +462,42 @@ body{
 .projects__title{
     display: flex;
     justify-content: end;
-    margin-right: 15%;
     box-sizing: border-box;
 }
-.projects__img__img {
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
-    padding: 1px;
-    box-sizing: border-box;
-    overflow: hidden; /* Скрываем псевдоэлементы за пределами родителя */
+.projects__img {
     position: relative; /* Устанавливаем позиционирование для родителя */
-    
-    /* Границы */
-    border: 1px solid transparent; /* Устанавливаем ширину границы */
+    padding: 20px; /* Отступы внутри элемента */
+}
+
+.projects__img__img {
+    width: 100%;
     border-radius: 10px; /* Округляем границы */
-    background-image: linear-gradient(90deg, #FFA65B, #D24D9C); /* Градиент */
-    border-image: linear-gradient(90deg, #FFA65B, #D24D9C) 1; /* Применяем градиент к границе */
+    overflow: hidden; /* Скрываем содержимое, выходящее за границы */
+    position: relative; /* Устанавливаем позиционирование для родителя */
+    z-index: 1; /* Устанавливаем z-index, чтобы элемент был выше псевдоэлемента */
 }
 
-.projects__img{
-
+.projects__img__img::before {
+    content: '';
+    position: absolute;
+    top: -20px; /* Отступ сверху */
+    left: -20px; /* Отступ слева */
+    right: -20px; /* Отступ справа */
+    bottom: -20px; /* Отступ снизу */
+    border-radius: 15px; /* Закругление углов псевдоэлемента */
+    background: linear-gradient(90deg, #FFA65B, #D24D9C); /* Градиент фона псевдоэлемента */
 }
+.projects__desc {
+    display: flex; /* Используем flexbox для расположения элементов */
+    justify-content: space-between; /* Распределяем пространство между элементами */
+    align-items: stretch; /* Убедитесь, что элементы занимают одинаковую высоту */
+    width: 70vw; /* Фиксированная ширина 80% от ширины экрана */
+    margin: 0 auto; /* Центрируем контейнер */
+    box-sizing: border-box; /* Учитываем отступы и границы в ширине */
+}
+
+
+
 .projects__name {
 
     margin-right: 10%;
@@ -484,11 +505,7 @@ body{
     flex-direction: column; /* Располагаем элементы по вертикали */
     justify-content: space-between; /* Распределяем пространство между элементами */
 }
-.projects__name__name{
-    margin-top: 10%;
-    margin-bottom: 10%;
-    box-sizing: border-box;
-}
+
 .figma__a{
     padding: 10px;
     border: 2px solid var(--border-color-frame2);
@@ -512,6 +529,11 @@ body{
     -webkit-background-clip: text; /* Обрезаем фон по форме текста */
     -webkit-text-fill-color: transparent; /* Делает цвет текста прозрачным, чтобы виден был фон */
 }
+.projects__name__name {
+    white-space: normal; /* Позволяет тексту переноситься на новую строку */
+    overflow: visible; /* Убедитесь, что текст не обрезается */
+    text-overflow: clip; /* Отключает обрезку текста с многоточием */
+}
 .mobile{
     display: none;
 }
@@ -525,4 +547,30 @@ body{
     .desktop{
         display: none;
     }
+    .projects__name__name{
+        margin-top: 10%;
+        margin-bottom: 10%;
+        box-sizing: border-box;
+    }
+}
+@media (max-width: 768px) {
+    .projects__img__img{
+        border: 2px solid var(--border-color-frame2);
+        padding: 20px;
+        border-radius: 20px;
+        box-sizing: border-box;
+
+    }
+    .projects__name__name{
+        font-size: 32px;
+    }
+}
+@media (max-width:400px){
+    .projects__name__name{
+        font-size: 20px;
+    }
+}
+a {
+    text-decoration: none; /* Убираем нижнее подчеркивание */
+    color: var(--text-color);
 }

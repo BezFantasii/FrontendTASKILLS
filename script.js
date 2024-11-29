@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectNames = document.querySelectorAll('.projects__name__name');
     const projectImage1 = document.querySelector('.projects__img1');
     const projectDescription = document.querySelector('.project__about'); // Селектор для текста под изображением
-    const figmaButton = document.querySelector('.figma');
+    const figmaButton = document.querySelector('.figma__a');
 
     // Устанавливаем первый проект как активный и задаем изображение и текст по умолчанию
     const firstProject = document.querySelector('#projects__name1');
@@ -73,6 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const newText = project.getAttribute('data-text');
             projectDescription.textContent = newText; // Меняем текст
+
+            const newHref = project.getAttribute('data-href')
+            figmaButton.href = newHref; // Меняем ссылку на figma
         });
     });
 
