@@ -466,7 +466,6 @@ body{
 }
 .projects__img {
     position: relative; /* Устанавливаем позиционирование для родителя */
-    padding: 20px; /* Отступы внутри элемента */
 }
 
 .projects__img__img {
